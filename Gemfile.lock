@@ -22,7 +22,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  rack
   sidekiq
+  sinatra
 
 BUNDLED WITH
    1.11.2

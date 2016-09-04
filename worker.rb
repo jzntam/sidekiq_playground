@@ -13,12 +13,15 @@ end
 
 class OurWorker
   include Sidekiq::Worker
+  # set the number of times Sidekiq should retry a job
+  sidekiq_options retry: 0
 
   # To simulate different amounts of work, we just add sleep statements
   def perform(complexity)
     case complexity
     when "super_hard"
-      sleep 20
+      puts "\nCharging a credit card...\n"
+      raise "Woops stuff got bad"
       puts "\nReally took quite a bit of effort\n"
     when "hard"
       sleep 10
